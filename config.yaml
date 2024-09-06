@@ -1,0 +1,30 @@
+service: velocity-api-data
+mongo:
+  url: ${MONGO_CLOUD_URL}
+  dbname: ${MONGO_DB_NAME}
+  createindexes: true
+  indexes: []
+# Example:   
+#    - name: username_idx
+#      collection: USER
+#      fields: 
+#        - name: userName
+#          type: 1
+#      unique: true
+server:
+  port: 8080
+  preFork: false
+  Max: 45
+  ExpSecs: 60
+redis:
+  host: ${REDIS_HOST}
+  port: ${REDIS_PORT}
+  type: standalone
+  poolsize: 10
+  user: ${REDIS_USER}
+  password: ${REDIS_PASSWORD}
+  namespaces:
+#  Example  
+# - precheckNonce:
+#     prefix: "authn:precheck"
+#     ttl: "600s"
